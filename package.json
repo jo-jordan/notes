@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/lzjlxebr/notes#readme",
   "dependencies": {
-    "koa": "^2.5.2",
+    "koa": "^2.6.2",
     "vuepress": "^0.14.5"
   }
 }

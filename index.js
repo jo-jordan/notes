@@ -3,8 +3,18 @@ const { spawn } = require('child_process');
 
 const app = new App()
 
+// logger
+app.use(async (ctx, next) => {
+    await next();
+    const rt = ctx.response.get('X-Response-Time');
+    console.log(`${ctx.method} ${ctx.url} - ${rt}`);
+});
+
 app.use(async ctx => {
+        ctx.request;
+        
         const ls = spawn('bash', ['./deploy.sh']);
+        
         
         ls.stdout.on('data', (data) => {
                      console.log(`[info]：${data}`);
