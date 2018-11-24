@@ -1,0 +1,2 @@
+# notes
+learn is everything
