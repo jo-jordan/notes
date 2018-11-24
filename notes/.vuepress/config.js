@@ -11,8 +11,7 @@ module.exports = {
     editLinks: true,
     editLinkText: '在 GitHub 上编辑此页',
     nav: [
-      { text: 'OP1', link: '/es5/' },
-      { text: 'OP2', link: '/es6/' },
+      { text: 'OP1', link: '/activity/' },
     ],
     sidebarDepth: 1,
     sidebar: [
@@ -24,10 +23,7 @@ module.exports = {
       }, {
         title: 'Other',
         children: [
-          '/other/koa2',
-          '/other/vuex',
-          '/other/gitignore',
-          '/other/interview',
+          '/other/activity',
         ]
       },
     ],
