@@ -17,11 +17,11 @@ footer: Copyright © 2018-present lzjlxebr
 
 ```bash
 # clone repo
-git clone https://github.com/lzjlxebr/notes.git && cd docs
+git clone https://github.com/lzjlxebr/notes.git && cd notes
 # install dependences
 npm install
 # run dev
-npm run docs:dev
+npm run notes:dev
 # run build
-npm run docs:build
+npm run notes:build
 ```
