@@ -25,6 +25,10 @@ module.exports = {
         title: 'Other',
         children: [
           '/other/activity',
+          '/other/AndroidDev-Adapter.md',
+          '/other/AndroidDev-Layout.md',
+          '/other/AndroidDev-RecyclerView.md',
+          '/other/custom_view.md',
         ]
       },
     ],
