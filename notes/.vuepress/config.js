@@ -11,7 +11,7 @@ module.exports = {
     editLinks: true,
     editLinkText: '在 GitHub 上编辑此页',
     nav: [
-      { text: 'OP1', link: '/Other/' },
+      { text: 'OP1', link: '/Other/activity' },
     ],
     sidebarDepth: 1,
     sidebar: [
