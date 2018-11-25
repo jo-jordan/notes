@@ -4,7 +4,7 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/avatar.jpeg' }]
   ],
-  host:'140.82.16.16'
+  host:'140.82.16.16',
   // evergreen: true,
   themeConfig: {
     repo: 'https://github.com/lzjlxebr/notes',
