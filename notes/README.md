@@ -2,7 +2,7 @@
 home: true
 heroImage: /avatar.jpg
 actionText: Get Start →
-actionLink: /other/
+actionLink: /Other/
 features:
 - title: Best DevTool
   details: MacBook Pro.
