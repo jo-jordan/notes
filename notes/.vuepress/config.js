@@ -34,7 +34,7 @@ module.exports = {
       }, {
         title: 'Js',
         children: [
-          '/Js/prop',
+          '/js/prop',
         ]
       },
     ],
