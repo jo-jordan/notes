@@ -18,11 +18,6 @@ module.exports = {
     sidebarDepth: 1,
     sidebar: [
       {
-        title: 'webapi',
-        children: [
-          '/webapi/canvas'
-        ]
-      }, {
         title: 'Other',
         children: [
           '/other/activity',
