@@ -31,8 +31,7 @@ module.exports = {
           '/other/AndroidDev-RecyclerView.md',
           '/other/custom_view.md',
         ]
-      },
-      , {
+      }, {
         title: 'Js',
         children: [
           '/Js/prop',
