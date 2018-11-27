@@ -12,7 +12,8 @@ module.exports = {
     editLinks: true,
     editLinkText: '在 GitHub 上编辑此页',
     nav: [
-      { text: 'OP1', link: '/Other/activity' },
+      { text: 'Other', link: '/Other/activity' },
+      { text: 'JS', link: '/Js/prop' },
     ],
     sidebarDepth: 1,
     sidebar: [
@@ -29,6 +30,12 @@ module.exports = {
           '/other/AndroidDev-Layout.md',
           '/other/AndroidDev-RecyclerView.md',
           '/other/custom_view.md',
+        ]
+      },
+      , {
+        title: 'Js',
+        children: [
+          '/Js/prop',
         ]
       },
     ],
