@@ -45,11 +45,11 @@ main() {
 
 **<font color=#008f8e>42</font>**
 
-数字
+数字。
 
 **<font color=#008f8e>print()</font>**
 
-一个便捷的方式，输出到控制台
+一个便捷的方式，输出到控制台。
 
 **<font color=#008f8e>var</font>**
 
@@ -60,4 +60,4 @@ main() {
 
 - 变量可以存放任何东西，并且每个对象（*object*）都是一个类的实例。即使是数字，方法和空值（<font color=#008f8e>null</font>），也都算对象。所有对象都继承自Object类。*Java中方法不能是对象*
 - 即使Dart中声明变量可以不指定变量类型，但是它依然是抢类型语言，这是因为Dart会自己推断类型。在上面的例子中，变量<font color=#008f8e>number</font>会被推测为<font color=#008f8e>int</font>类型。如果要明确说明不需要任何类型，请使用特殊类型<font color=#0076c0>dynamic</font>。
-- 和Java一样，Dart支持泛型。
+- 和Java一样，Dart支持泛型。<font color=#008f8e>List<int></font>存放int类型的列表或者是<font color=#008f8e>List<dynamic></font>可存放任意类型对象的列表。
