@@ -1,5 +1,5 @@
 # Dart之旅
-我要赶紧发个车了，其实这个是自己的翻译。基本上还是介绍Dart的主要特性，不过我会以<font color=#008f8e>Java</font>作为一个对比去简单的分析一下，这样可能更好理解点。
+我要赶紧发个车了，其实这个是[自己的翻译][0]。基本上还是介绍Dart的主要特性，不过我会以<font color=#008f8e>Java</font>作为一个对比去简单的分析一下，这样可能更好理解点。
 
 ## 最基本的科普
 Dart是由Google主导开发的一种通用编程语言，在诞生之后被Ecma（ECMA-408）批准为一种标准。它被用于构建web，server和移动应用。
@@ -14,6 +14,7 @@ Dart的运行方式有三种：
 
 以上部分均来自维基百科
 
+[0]:https://www.dartlang.org/guides/language/language-tour
 [1]:https://en.wikipedia.org/wiki/Mixin
 [2]:https://en.wikipedia.org/wiki/Ahead-of-time_compilation
 
@@ -162,7 +163,7 @@ main() {
 
 - 角标1:是上下文关键字，仅在特定的地方有意义。他们可以在任何时候被当作标识符。
 - 角标2:是内建标识符。为了简化移植JavaScrip代码到Dart，这些关键字在大部分地方是有效的，但是不能作为类命或者类型名称，或者是作为导入前缀。
-- 角标3:较新的一种。这是为Dart1.0正式版之后的异步支持所预留的关键字。不能在被标记为<span style="color:#008f8e">async</span>，<span style="color:#008f8e"> async* </span> 或者是<span style="color:#008f8e">snyc*</span>的方法体中使用。
+- 角标3:较新的一种。这是为Dart1.0正式版之后的异步支持所预留的关键字。不能在被标记为<span style="color:#008f8e"> async </span>，<span style="color:#008f8e"> async* </span> 或者是 snyc* 的方法体中使用。
 
 所有其他的关键字都为保留字段，无法被作为标识符使用。
 
