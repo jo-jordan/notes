@@ -1,5 +1,5 @@
 # Dart之旅
-我要赶紧发个车了，其实这个是[自己的翻译][0]。基本上还是介绍Dart的主要特性，不过我会以<font color=#008f8e>Java</font>作为一个对比去简单的分析一下，这样可能更好理解点。
+我要赶紧发个车了，其实这个是[自己的翻译][0]。基本上还是介绍Dart的主要特性，不过我会以<font color=#008f8e>Java</font>作为一个对比去简单的分析一下，这样可能更好理解点。可能有点长。
 
 ## 最基本的科普
 Dart是由Google主导开发的一种通用编程语言，在诞生之后被Ecma（ECMA-408）批准为一种标准。它被用于构建web，server和移动应用。
@@ -77,7 +77,7 @@ main() {
 下面列表包括了Dart中用到的所有关键词
 
 |            |          |            |        |
-| --------   | -------  | ---------- | ------ |
+| ---------------- | ---------------- | ---------------- | ---------------- |
 | [abstract][4] <sup>2</sup>   | [dynamic][5] <sup>2</sup>  | [implements][6] <sup>2</sup> | [show][7] <sup>1</sup>   |
 | [as][8] <sup>2</sup>            | [else][9]               | [import][10] <sup>2</sup>     | [static][11] <sup>2</sup> |
 | [assert][12]                     | [enum][13]                     | [in][14]         | [super][15]  |
@@ -98,79 +98,236 @@ main() {
 
 
 [4]:https://www.dartlang.org/guides/language/language-tour#abstract-classes
-[5]:https://www.dartlang.org/guides/language/language-tour#important-concepts
-[6]:https://www.dartlang.org/guides/language/language-tour#implicit-interfaces
-[7]:https://www.dartlang.org/guides/language/language-tour#importing-only-part-of-a-library
-[8]:https://www.dartlang.org/guides/language/language-tour#type-test-operators
-[9]:https://www.dartlang.org/guides/language/language-tour#if-and-else
-[10]:https://www.dartlang.org/guides/language/language-tour#using-libraries
-[11]:https://www.dartlang.org/guides/language/language-tour#class-variables-and-methods
-[12]:https://www.dartlang.org/guides/language/language-tour#assert
-[13]:https://www.dartlang.org/guides/language/language-tour#enumerated-types
-[14]:https://www.dartlang.org/guides/language/language-tour#for-loops
-[15]:https://www.dartlang.org/guides/language/language-tour#extending-a-class
-[16]:https://www.dartlang.org/guides/language/language-tour#asynchrony-support
-[17]:https://www.dartlang.org/guides/libraries/create-library-packages
-[18]:https://stackoverflow.com/questions/28595501/was-the-interface-keyword-removed-from-dart
-[19]:https://www.dartlang.org/guides/language/language-tour#switch-and-case
-[20]:https://www.dartlang.org/guides/language/language-tour#asynchrony-support
-[21]:https://www.dartlang.org/guides/language/language-tour#extending-a-class
-[22]:https://www.dartlang.org/guides/language/language-tour#type-test-operators
-[23]:https://www.dartlang.org/guides/language/language-tour#generators
-[24]:https://www.dartlang.org/guides/language/language-tour#break-and-continue
-[25]:https://stackoverflow.com/questions/24929659/what-does-external-mean-in-dart
-[26]:https://www.dartlang.org/guides/language/language-tour#libraries-and-visibility
-[27]:https://www.dartlang.org/guides/language/language-tour#constructors
-[28]:https://www.dartlang.org/guides/language/language-tour#switch-and-case
-[29]:https://www.dartlang.org/guides/language/language-tour#factory-constructors
-[30]:https://www.dartlang.org/guides/language/language-tour#adding-features-to-a-class-mixins
-[31]:https://www.dartlang.org/guides/language/language-tour#throw
-[32]:https://www.dartlang.org/guides/language/language-tour#catch
-[33]:https://www.dartlang.org/guides/language/language-tour#booleans
-[34]:https://www.dartlang.org/guides/language/language-tour#using-constructors
-[35]:https://www.dartlang.org/guides/language/language-tour#booleans
-[36]:https://www.dartlang.org/guides/language/language-tour#instance-variables
-[37]:https://www.dartlang.org/guides/language/language-tour#final-and-const
-[38]:https://www.dartlang.org/guides/language/language-tour#default-value
-[39]:https://www.dartlang.org/guides/language/language-tour#catch
-[40]:https://www.dartlang.org/guides/language/language-tour#final-and-const
-[41]:https://www.dartlang.org/guides/language/language-tour#finally
-[42]:https://www.dartlang.org/guides/language/language-tour#catch
-[43]:https://www.dartlang.org/guides/language/language-tour#typedefs
-[44]:https://www.dartlang.org/guides/language/language-tour#break-and-continue
-[45]:https://www.dartlang.org/guides/language/language-tour#for-loops
-[46]:https://www.dartlang.org/guides/language/language-tour#overridable-operators
-[47]:https://www.dartlang.org/guides/language/language-tour#variables
-[48]:https://www.dartlang.org/guides/language/sound-problems#the-covariant-keyword
-[49]:https://www.dartlang.org/guides/language/language-tour#functions
-[50]:https://www.dartlang.org/guides/libraries/create-library-packages#organizing-a-library-package
-[51]:https://medium.com/dartlang/dart-2-legacy-of-the-void-e7afb5f44df0
-[52]:https://www.dartlang.org/guides/language/language-tour#switch-and-case
-[53]:https://www.dartlang.org/guides/language/language-tour#getters-and-setters
-[54]:https://www.dartlang.org/guides/language/language-tour#catch
-[55]:https://www.dartlang.org/guides/language/language-tour#while-and-do-while
-[56]:https://www.dartlang.org/guides/language/language-tour#lazily-loading-a-library
-[57]:https://www.dartlang.org/guides/language/language-tour#importing-only-part-of-a-library
-[58]:https://www.dartlang.org/guides/language/language-tour#functions
-[59]:https://www.dartlang.org/guides/language/language-tour#adding-features-to-a-class-mixins
-[60]:https://www.dartlang.org/guides/language/language-tour#while-and-do-while
-[61]:https://www.dartlang.org/guides/language/language-tour#if-and-else
-[62]:https://www.dartlang.org/guides/language/language-tour#getters-and-setters
-[63]:https://www.dartlang.org/guides/language/language-tour#generators
+
+[5]:https://www.dartlang.org/guides/language/language-tour#important-concepts
+
+[6]:https://www.dartlang.org/guides/language/language-tour#implicit-interfaces
+
+[7]:https://www.dartlang.org/guides/language/language-tour#importing-only-part-of-a-library
+
+[8]:https://www.dartlang.org/guides/language/language-tour#type-test-operators
+
+[9]:https://www.dartlang.org/guides/language/language-tour#if-and-else
+
+[10]:https://www.dartlang.org/guides/language/language-tour#using-libraries
+
+[11]:https://www.dartlang.org/guides/language/language-tour#class-variables-and-methods
+
+[12]:https://www.dartlang.org/guides/language/language-tour#assert
+
+[13]:https://www.dartlang.org/guides/language/language-tour#enumerated-types
+
+[14]:https://www.dartlang.org/guides/language/language-tour#for-loops
+
+[15]:https://www.dartlang.org/guides/language/language-tour#extending-a-class
+
+[16]:https://www.dartlang.org/guides/language/language-tour#asynchrony-support
+
+[17]:https://www.dartlang.org/guides/libraries/create-library-packages
+
+[18]:https://stackoverflow.com/questions/28595501/was-the-interface-keyword-removed-from-dart
+
+[19]:https://www.dartlang.org/guides/language/language-tour#switch-and-case
+
+[20]:https://www.dartlang.org/guides/language/language-tour#asynchrony-support
+
+[21]:https://www.dartlang.org/guides/language/language-tour#extending-a-class
+
+[22]:https://www.dartlang.org/guides/language/language-tour#type-test-operators
+
+[23]:https://www.dartlang.org/guides/language/language-tour#generators
+
+[24]:https://www.dartlang.org/guides/language/language-tour#break-and-continue
+
+[25]:https://stackoverflow.com/questions/24929659/what-does-external-mean-in-dart
+
+[26]:https://www.dartlang.org/guides/language/language-tour#libraries-and-visibility
+
+[27]:https://www.dartlang.org/guides/language/language-tour#constructors
+
+[28]:https://www.dartlang.org/guides/language/language-tour#switch-and-case
+
+[29]:https://www.dartlang.org/guides/language/language-tour#factory-constructors
+
+[30]:https://www.dartlang.org/guides/language/language-tour#adding-features-to-a-class-mixins
+
+[31]:https://www.dartlang.org/guides/language/language-tour#throw
+
+[32]:https://www.dartlang.org/guides/language/language-tour#catch
+
+[33]:https://www.dartlang.org/guides/language/language-tour#booleans
+
+[34]:https://www.dartlang.org/guides/language/language-tour#using-constructors
+
+[35]:https://www.dartlang.org/guides/language/language-tour#booleans
+
+[36]:https://www.dartlang.org/guides/language/language-tour#instance-variables
+
+[37]:https://www.dartlang.org/guides/language/language-tour#final-and-const
+
+[38]:https://www.dartlang.org/guides/language/language-tour#default-value
+
+[39]:https://www.dartlang.org/guides/language/language-tour#catch
+
+[40]:https://www.dartlang.org/guides/language/language-tour#final-and-const
+
+[41]:https://www.dartlang.org/guides/language/language-tour#finally
+
+[42]:https://www.dartlang.org/guides/language/language-tour#catch
+
+[43]:https://www.dartlang.org/guides/language/language-tour#typedefs
+
+[44]:https://www.dartlang.org/guides/language/language-tour#break-and-continue
+
+[45]:https://www.dartlang.org/guides/language/language-tour#for-loops
+
+[46]:https://www.dartlang.org/guides/language/language-tour#overridable-operators
+
+[47]:https://www.dartlang.org/guides/language/language-tour#variables
+
+[48]:https://www.dartlang.org/guides/language/sound-problems#the-covariant-keyword
+
+[49]:https://www.dartlang.org/guides/language/language-tour#functions
+
+[50]:https://www.dartlang.org/guides/libraries/create-library-packages#organizing-a-library-package
+
+[51]:https://medium.com/dartlang/dart-2-legacy-of-the-void-e7afb5f44df0
+
+[52]:https://www.dartlang.org/guides/language/language-tour#switch-and-case
+
+[53]:https://www.dartlang.org/guides/language/language-tour#getters-and-setters
+
+[54]:https://www.dartlang.org/guides/language/language-tour#catch
+
+[55]:https://www.dartlang.org/guides/language/language-tour#while-and-do-while
+
+[56]:https://www.dartlang.org/guides/language/language-tour#lazily-loading-a-library
+
+[57]:https://www.dartlang.org/guides/language/language-tour#importing-only-part-of-a-library
+
+[58]:https://www.dartlang.org/guides/language/language-tour#functions
+
+[59]:https://www.dartlang.org/guides/language/language-tour#adding-features-to-a-class-mixins
+
+[60]:https://www.dartlang.org/guides/language/language-tour#while-and-do-while
+
+[61]:https://www.dartlang.org/guides/language/language-tour#if-and-else
+
+[62]:https://www.dartlang.org/guides/language/language-tour#getters-and-setters
+
+[63]:https://www.dartlang.org/guides/language/language-tour#generators
 
 
 避免使用以上的关键字作为标识符。但是如果真有必要，可以使用以上带角标的关键字：
 
 - 角标1:是上下文关键字，仅在特定的地方有意义。他们可以在任何时候被当作标识符。
 - 角标2:是内建标识符。为了简化移植JavaScrip代码到Dart，这些关键字在大部分地方是有效的，但是不能作为类命或者类型名称，或者是作为导入前缀。
-- 角标3:较新的一种。这是为Dart1.0正式版之后的异步支持所预留的关键字。不能在被标记为<span style="color:#008f8e"> async </span>，<span style="color:#008f8e"> async* </span> 或者是 snyc* 的方法体中使用。
+- 角标3:较新的一种。这是为Dart1.0正式版之后的异步支持所预留的关键字。不能在被标记为<span style="color:#008f8e"> async </span>，<span style="color:#008f8e"> async* </span> 或者是 <span style="color:#008f8e"> snyc* </span> 的方法体中使用。
 
 所有其他的关键字都为保留字段，无法被作为标识符使用。
 
+## 变量
+给个定义变量的例子：
+
+```dart
+var name = 'Bob';
+```
+
+变量存储引用。<span style="color:#008f8e"> name </span>变量存放了一个指向一个字符串对象（值为"Bob"）的引用。
+
+这个变量的类型会被推断为String类型，但是也可以转而明确指定一个类型。如果一个对象不能被限定一个单独的类型，请使用<span style="color:#008f8e"> Object </span>或者<span style="color:#008f8e"> dynamic </span>。[查看详细][64]。
+
+```dart
+dynamic name = 'Bob';
+```
+
+另外一种可选的方法就是指定这个值的类型可能被推测的类型：
+
+```dart
+String name = 'Bob';
+```
+
+> 注意：这里更加偏向于使用var去声明变量是因为[风格指导建议][65]。
+
+[64]:https://www.dartlang.org/guides/language/effective-dart/design#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed
+[65]:https://www.dartlang.org/guides/language/effective-dart/design#types
+
+### 默认值
+
+未被初始化的变量会有一个初始化一个<span style="color:#008f8e"> null </span>值。即使一个数字（Numeric）类型的变量也会被初始为null，因为在Dart里面一切皆对象。
+
+```dart
+int lineCount;
+assert(lineCount == null);
+```
+
+> 注意：assert()的调用在程序运行时会被忽略，在开发过程中，assert(*condition*)会抛出异常，除非条件为true。[更多查看详细][66]。
+
+[66]:https://www.dartlang.org/guides/language/language-tour#assert
 
 
+### Final和const
+如果一直都不想改变某个变量的值，那么可以使用<span style="color:#008f8e"> final </span>或者<span style="color:#008f8e"> const </span>，而不是用var或者指定类型。一个final变量只能够被赋值一次；一个const变量是一个编译时常量。（Const变量是隐式的final变量）一个final的 top-level 或者类变量只会在它第一次所用时被赋值。这个就像Java中的String了。
 
+> 注意：实例变量只能是final的，不能是const的。final实例必须在构造函数体前面被初始化-在变量声明那里，被当作是构造函数的参数，或者在构造函数的初始列表中。
 
+来个列子看一下：
 
+```dart
 
+final name = 'Bob' // Without a type annotaion.
+final String nickname = 'Buddy';
 
+```
+
+无法改变一个final变量的值：
+
+```dart
+
+name = 'Alice'; // Error: a final variable can only be set once.
+
+```
+
+使用const的话适用于你想这个值是在编译时就被初始化的（**compile-time constants**）。如果这个常量在class级别，标记它为<span style="color:#008f8e"> static const </span>。当你声明一个变量，就比如是数字类型、字符串类型或者是一个算数的结果，将它的值设置为编译时常量：
+
+```dart
+
+const bar = 100000; // Unit of pressure (dynes/cm2)
+const double atm = 1.0898; // Standard atmosphere
+
+```
+
+关键点来了，const不仅仅只用于常量的定义。你还能用它去构建常量值，也就像创建构造器一样创建它。任何变量都能拥有常量值。
+
+```dart
+
+var foo = const [];
+final bar = const [];
+const baz = []; // Equivalent to `const []`
+
+```
+
+你甚至能从const初始化表达式中忽略掉const，就像上面的baz一样。[详情请看][67]。
+
+你能改变一个非final或者非const变量的值，即使它曾经有过const值：
+
+```dart
+
+foo = [1, 2, 3]; // Was const []
+
+```
+
+你不能改变一个const变量的值：
+
+```dart
+
+baz = [42]; // Error: Constant variables can't be assigned a vale.
+
+```
+
+更多使用const的方法可以看[Lists][68]、[Maps][69]、[Classes][70] 。
+
+[67]:https://www.dartlang.org/guides/language/effective-dart/usage#dont-use-const-redundantly
+[68]:https://www.dartlang.org/guides/language/language-tour#lists
+[69]:https://www.dartlang.org/guides/language/language-tour#maps
+[70]:https://www.dartlang.org/guides/language/language-tour#classes
