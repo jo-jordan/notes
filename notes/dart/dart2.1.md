@@ -20,7 +20,7 @@ Dart的运行方式有三种：
 ## 最基本的一段代码
 代码很好理解，但是却包含了Dart大部分的特性。
 
-```
+```dart
 // 定义一个方法.
 printInteger(int aNumber) {
   print('The number is $aNumber.'); // 输出到控制台.
@@ -58,6 +58,34 @@ main() {
 ## 划个重点
 刚刚也看到了，这就是Dart语言，请遵循以下的原则：
 
-- 变量可以存放任何东西，并且每个对象（*object*）都是一个类的实例。即使是数字，方法和空值（<font color=#008f8e>null</font>），也都算对象。所有对象都继承自Object类。*Java中方法不能是对象*
+- 变量可以存放任何东西，并且每个*对象*（*object*）都是一个类的实例。即使是数字，方法和空值（<font color=#008f8e>null</font>），也都算对象。所有对象都继承自Object类。*Java中方法不能是对象*
 - 即使Dart中声明变量可以不指定变量类型，但是它依然是抢类型语言，这是因为Dart会自己推断类型。在上面的例子中，变量<font color=#008f8e>number</font>会被推测为<font color=#008f8e>int</font>类型。如果要明确说明不需要任何类型，请使用特殊类型<font color=#0076c0>dynamic</font>。
 - 和Java一样，Dart支持泛型。<font color=#008f8e>List<int></font>存放int类型的列表或者是<font color=#008f8e>List<dynamic></font>可存放任意类型对象的列表。
+- Dart中的方法能放进类中或者对象中（静态的或者是实例）。和Java不一样的是Dart中方法中能嵌套方法，并且Dart支持顶级方法（top-level function）。
+- 和上面近似的，Dart支持顶级变量（top-level variables）。
+- 不像Java有很多权限控制的关键词，如：<font color=#008f8e>public</font>, <font color=#008f8e>private</font>, <font color=#008f8e>protected</font>。如果一个标识符以下划线开头（_），那么它对于它所在的库中就是私有的（private）。更多请看[Libraries and visibility][3]
+- 标识符可以是连字符开头，也可以是下划线，然后以任意的字符加数字相连都可以。
+- Dart有一种*表达式*（有运行时值），一种*声明语句*（没有运行值）。例如条件表达式：<font color=#008f8e>condition ? expr1 : expr2</font> 拥有expr1或者expr2的值。if-else语句与之相比就没有值。但表达式不能直接包含语句。
+- Dart工具能够报告两种类型的问题：*警告*（warnings）和*错误*（errors）。警告往往只是告诉你某些代码不会起作用，但是不会阻止程序的运行。错误的话就包括编译错误和运行时错误。
+
+[3]:https://www.dartlang.org/guides/language/language-tour#libraries-and-visibility
+
+
+## 关键词
+下面列表包括了Dart中用到的所有关键词
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
