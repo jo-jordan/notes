@@ -275,7 +275,7 @@ assert(lineCount == null);
 
 ```dart
 
-final name = 'Bob' // Without a type annotaion.
+final name = 'Bob'; // Without a type annotaion.
 final String nickname = 'Buddy';
 
 ```
