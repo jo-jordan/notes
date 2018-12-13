@@ -358,11 +358,70 @@ Dart数字来自于两种类别：
 **[double][72]**
 64位（双精度）单浮点数字，就像IEEE 754标准中指定的。
 
-<span style="color:#008f8e"> int </span>和<span style="color:#008f8e"> double </span>都是[num][74]的子类。
+<span style="color:#008f8e"> int </span>和<span style="color:#008f8e"> double </span>都是[num][74]的子类。数字类型都包含基本的操作符，譬如 +，-， /， *，同样在其他的方法中找到<span style="color:#008f8e"> abs() </span>, <span style="color:#008f8e"> ceil() </span>, <span style="color:#008f8e"> floor() </span>。（位操作符例如 >> 也定义在int类中。）如果num的子类中也找不到你要的方法，那就试试[dart:math][75]库。
+
+整数是没有小数点的数字。 以下是定义整数文字的一些示例：
+```dart
+var x = 1;
+var hex = 0xDEADBEEF;
+```
+如果一个数字带有小数点，他就是double。下面是些示例：
+```dart
+var y = 1.1;
+var exponents = 1.42e5;
+```
+从Dart 2.1开始，必要时整数文字会自动转换为双精度数：
+```dart
+double z = 1; // Equivalent to double z = 1.0.
+```
+> 注意版本：在Dart2.1之前，以上写法是会报错的。即，把一个整型的示例放在double变量中。
+
+下面是教你怎么把字符串转换成数字，或者反之亦然：
+```dart
+// String -> int
+var one = int.parse('1');
+assert(one == 1);
+
+// String -> double
+var onePointOne = double.parse('1.1');
+assert(onePointOne == 1.1);
+
+// int -> String 这很皮
+String oneAsString = 1.toString();
+assert(oneAsString == '1');
+
+// double -> String
+String piAsString = 3.14159.toString();
+assert(piAsString == '3.14');
+```
+int类型指定了传统的位计算（<<，>>），AND（＆）和OR（|）运算符。 例如：
+```dart
+assert((3 << 1) == 6); // 0011 << 1 == 0110
+assert((3 >> 1) == 1); // 0011 >> 1 == 0001
+assert((3 | 4) == 7); // 0011 | 0100 = 0111
+```
+直接列举的数字都是编译时常量。许多算术表达式也是编译时常量，只要它们的操作数是编译为数字的编译时常量。
+```dart
+const msPerSecond = 1000;
+const secondUntilRetry = 5;
+const msUntilRetry = secondUntilRetry * msPerSecond;
+```
+
+### 字符串
+
+
+
+
+
+
+
+
+
 
 
 [71]:https://api.dartlang.org/stable/dart-core/int-class.html
 [72]:https://api.dartlang.org/stable/dart-core/double-class.html
 [73]:https://stackoverflow.com/questions/2802957/number-of-bits-in-javascript-numbers/2803010#2803010
 [74]:https://api.dartlang.org/stable/dart-core/num-class.html
+[75]:https://api.dartlang.org/stable/dart-math
 
