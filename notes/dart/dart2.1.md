@@ -407,21 +407,121 @@ const secondUntilRetry = 5;
 const msUntilRetry = secondUntilRetry * msPerSecond;
 ```
 
-### 字符串
-
-
-
-
-
-
-
-
-
-
-
 [71]:https://api.dartlang.org/stable/dart-core/int-class.html
 [72]:https://api.dartlang.org/stable/dart-core/double-class.html
 [73]:https://stackoverflow.com/questions/2802957/number-of-bits-in-javascript-numbers/2803010#2803010
 [74]:https://api.dartlang.org/stable/dart-core/num-class.html
 [75]:https://api.dartlang.org/stable/dart-math
+
+### 字符串（Strings）
+Dart的字符串是由UTF-16编码单元组成的序列，你用单引号或者双引号都可以创建一个字符串：
+```dart
+var s1 = 'Single quotes work well for string literals.';
+var s2 = "Double quotes work just as well.";
+var s3 = 'It\'s easy to escape the string delimiter.';
+var s4 = "It's even easier to use the other delimiter.";
+```
+你能够使用 _${expression}_ 把一个表达式的值放进一个字符串中。如果这个表达式是一个标识符，那么可以省略{}。要获取对应于对象的字符串，Dart会调用object的toString()方法。
+```dart
+var s = 'string interpolation';
+
+assert('Dart has $s, which is very handy.' ==
+    'Dart has string interpolation, ' +
+        'which is very handy.');
+assert('That deserves all caps. ' +
+        '${s.toUpperCase()} is very handy!' ==
+    'That deserves all caps. ' +
+        'STRING INTERPOLATION is very handy!');
+```
+
+> 注意：==操作符会比较两个对象是否相等。如果两个字符串的字符单元序列是相等的那他俩就是相等的。这个肯定和java不一样。
+
+连接字符串，相邻的两个字符串用不用+号无所谓，很皮：
+```dart
+var s1 = 'String '
+    'concatenation'
+    " works even over line breaks.";
+assert(s1 ==
+    'String concatenation works even over '
+    'line breaks.');
+
+var s2 = 'The + operator ' + 'works, as well.';
+assert(s2 == 'The + operator works, as well.');
+```
+另外一种可以创建多行的字符串：使用三个连续的单引号或者双引号标记：
+```dart
+var s1 = '''
+You can create
+multi-line strings like this one.
+''';
+
+var s2 = """This is also a
+multi-line string.""";
+```
+还可以用 _r_ 创建原（raw）字符输出的字符串：
+```dart
+var s = r'In a raw string, not even \n gets special treatment.';
+```
+可以先看看[Runes](#符文（Runes）)是如果在一个字符串中表示Unicode字符的。
+
+文字字符串是编译时常量，只要任何插值表达式是一个编译时常量，其值为null或数值，字符串或布尔值。
+```dart
+// These work in a const string.
+const aConstNum = 0;
+const aConstBool = true;
+const aConstString = 'a constant string';
+
+// These do NOT work in a const string.
+var aNum = 0;
+var aBool = true;
+var aString = 'a string';
+const aConstList = [1, 2, 3];
+
+const validConstString = '$aConstNum $aConstBool $aConstString';
+// const invalidConstString = '$aNum $aBool $aString $aConstList';
+```
+更多字符串的用法请看详情[字符串和常规表达式](#字符串和常规表达式)
+
+### 布尔（Booleans）
+
+### 列表（Lists）
+
+### 图（Maps）
+
+### 符文（Runes）
+
+### 符号（Symbols）
+
+## 函数（Functions）
+
+### 可选参数（Optional parameters）
+
+#### 可选的命名参数（Optional named parameters）
+
+#### 可选的位置参数（Optional positional parameters）
+
+#### 默认参数值（Default parameter values）
+
+#### 主函数（The main() function）
+
+#### 作为第一类对象的函数（Functions as first-class objects）
+
+#### 匿名函数（Anonymous functions）
+
+#### 词汇范围（Lexical scope）
+
+#### 词汇封闭（Lexical closures）
+
+#### 测试函数是否相等（Testing functions for equality）
+
+#### 返回值（Return values）
+
+## 操作符（Operators）
+
+### 字符串和常规表达式
+
+
+
+
+
 
