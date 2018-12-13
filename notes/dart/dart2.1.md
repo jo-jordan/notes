@@ -331,3 +331,38 @@ baz = [42]; // Error: Constant variables can't be assigned a vale.
 [68]:https://www.dartlang.org/guides/language/language-tour#lists
 [69]:https://www.dartlang.org/guides/language/language-tour#maps
 [70]:https://www.dartlang.org/guides/language/language-tour#classes
+
+## 内建类型
+
+Dart语言支持以下类型：
+
+- numbers
+- strings
+- booleans
+- lists(可以被当作是数组)
+- maps
+- runes(用于在字符串中表示Unicode字符)
+- symbols
+
+你可以使用文字初始化任何这些特殊类型的对象。举个例子：<span style="color:#008f8e"> 'this is a string' </span>就是一个字符串文字，<span style="color:#008f8e"> true </span>就是布尔文字。
+
+因为在Dart中所有的变量都是指向一个对象 _一个类的实例_ 你一般也可以在构造器中初始化这些变量。在某些内建的类型中有些是拥有自己的构造器的，你能使用<span style="color:#008f8e"> Map() </span>构造器去创建一个的map。
+
+### 数字（Numbers）
+
+Dart数字来自于两种类别：
+
+**[int][71]**
+整型值不再大于64位，而取决于所在的平台。在Dart VM里，这些值取值范围是：-2<sup>63</sup> ~ 2<sup>63</sup>-1。编译为JavaScript的Dart，使用的[JavaScript numbers][73]，是允许范围：-2<sup>53</sup> ~ 2<sup>53</sup>-1。
+
+**[double][72]**
+64位（双精度）单浮点数字，就像IEEE 754标准中指定的。
+
+<span style="color:#008f8e"> int </span>和<span style="color:#008f8e"> double </span>都是[num][74]的子类。
+
+
+[71]:https://api.dartlang.org/stable/dart-core/int-class.html
+[72]:https://api.dartlang.org/stable/dart-core/double-class.html
+[73]:https://stackoverflow.com/questions/2802957/number-of-bits-in-javascript-numbers/2803010#2803010
+[74]:https://api.dartlang.org/stable/dart-core/num-class.html
+
