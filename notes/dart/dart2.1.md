@@ -486,7 +486,7 @@ const validConstString = '$aConstNum $aConstBool $aConstString';
 
 ### 列表（Lists）
 
-### 图（Maps）
+### 图（Maps）
 
 ### 符文（Runes）
 
