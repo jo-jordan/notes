@@ -303,8 +303,20 @@ const double atm = 1.0898; // Standard atmosphere
 
 var foo = const [];
 final bar = const [];
-const baz = []; // Equivalent to `const []`
+const baz = []; // Equivalent to const []
 
+var foo0 = const [1, 2, 3];
+const foo1 = [1, 2, 3];
+
+assert(foo0 == foo1); // true
+
+
+final foo2 = [1, 2, 3];
+final foo3 = const [1, 2, 3];
+const foo4 = const [1, 2, 3];
+
+// foo5 = [1, 2, 3]; // Error
+List<int> foo6 = [1, 2, 3];
 ```
 
 你甚至能从const初始化表达式中忽略掉const，就像上面的baz一样。[详情请看][67]。
@@ -506,6 +518,33 @@ assert(iMeantToDoThis.isNaN);
 ```
 
 ### 列表（Lists）
+也许最常用的集合在大多数的编程语言中是*数组*，或者是有顺序的一组对象。在Dart中，数组就是[List][76]，我们就叫他列表吧。
+
+Dart的列表很像JavaScript的数组，以下是例子：
+```dart
+var list = [1, 2, 3];
+```
+
+> 注意：解释器会把*list*推断为整型数组（List<`int`>）。如果你试图给他添加一个非整型的对象，解释器就会报错。更多请看[类型推断][77]
+
+列表使用从零开始的索引，其中0是第一个元素的索引，`list.length  -  1`是最后一个元素的索引。 您可以像在JavaScript中一样获取列表的长度并引用列表元素：
+```dart
+var list = [1, 2, 3];
+assert(list.length == 3);
+assert(list[1] == 2);
+
+list[1] = 1;
+assert(list[1] == 1);
+```
+
+要创建一个编译时常量的列表，请在列表声明之前添加const：
+```dart
+var constantList = const [1, 2, 3];
+// constantList[1] = 1; // Uncommenting this causes an error.
+```
+
+[76]:https://api.dartlang.org/stable/dart-core/List-class.html
+[77]:https://www.dartlang.org/guides/language/sound-dart#type-inference
 
 ### 图（Maps）
 
