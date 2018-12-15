@@ -483,6 +483,27 @@ const validConstString = '$aConstNum $aConstBool $aConstString';
 更多字符串的用法请看详情[字符串和常规表达式](#字符串和常规表达式)
 
 ### 布尔（Booleans）
+Dart中使用bool来表述布尔值。只有两个值:true和false，都是编译时常量。
+
+Dart的类型安全意味着您不能使用if(nonbooleanValue)或assert(nonbooleanValue)等代码。 相反，明确检查值，如下所示：
+
+```dart
+// Check for an empty string.
+var fullName = '';
+assert(fullName.isEmpty);
+
+// Check for zero.
+var hitPoints = 0;
+assert(hitPoints <= 0);
+
+// Check for null.
+var unicorn;
+assert(unicorn == null);
+
+// Check for NaN.
+var iMeantToDoThis = 0 / 0;
+assert(iMeantToDoThis.isNaN);
+```
 
 ### 列表（Lists）
 
