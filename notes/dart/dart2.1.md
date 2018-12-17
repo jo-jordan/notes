@@ -543,10 +543,85 @@ var constantList = const [1, 2, 3];
 // constantList[1] = 1; // Uncommenting this causes an error.
 ```
 
+List类型提供很多方法来操作它。更多可以看[泛型][78]和[集合][79]
+
 [76]:https://api.dartlang.org/stable/dart-core/List-class.html
 [77]:https://www.dartlang.org/guides/language/sound-dart#type-inference
+[78]:https://www.dartlang.org/guides/language/language-tour#generics
+[79]:https://www.dartlang.org/guides/libraries/library-tour#collections
 
 ### 图（Maps）
+
+一般而言，map存储的是键值对。键和值都可以存放任意类型的对象。键唯一，但是可以多次使用同一个值。Dart支持直接列举出一个map。如下：
+```dart
+var gifts = {
+    // key:  value
+    'first': 'partridge',
+    'second': 'turtledoves',
+    'fifth': 'golden rings'
+};
+
+var nobleGases = {
+    2: 'helium',
+    10: 'neon',
+    18: 'argon',
+};
+```
+
+> 注意：分析器会推测`gifts`为`Map<String, String>`，会把`nobleGases`推测为`Map<int, String>`。如果你试图要加错误的值类型进去，就会报错。更多请看[类型推测][80]。
+
+你也可以用构造器去创建一个Map：
+```dart
+var gifts = Map();
+gifts['first'] = 'partridge';
+gifts['second'] = 'turtledoves';
+gifts['fifth'] = 'golden rings';
+
+var nobleGases = Map();
+nobleGases[2] = 'helium';
+nobleGases[10] = 'neon';
+nobleGases[18] = 'argon';
+```
+
+> 注意：在Dart 2.0中以及之后，new关键词是可以省略的。
+
+增加元素：
+```dart
+var gifts = {'fisrt': 'partridge'};
+gifts['fourth'] = 'calling birds';
+```
+
+获取元素：
+```dart
+var gifts = {'fisrt': 'partridge'};
+assert(gifts['first'] == 'partridge');
+```
+
+如果那个键不存在，或者键对应的值不存在，会返回null：
+```dart
+var gifts = {'fisrt': 'partridge'};
+assert(gifts[fifth] == null);
+```
+
+获取键值对的数量：
+```dart
+var gifts = {'first': 'partridge'};
+gifts['fourth'] = 'calling birds';
+assert(gifts.length == 2);
+```
+
+创建一个编译时的Map，加上const就好：
+```dart
+final constantMap = const {
+  2: 'helium',
+  10: 'neon',
+  18: 'argon',
+};
+
+// constantMap[2] = 'Helium'; // Uncommenting this causes an error.
+```
+
+[80]:https://www.dartlang.org/guides/language/sound-dart#type-inference
 
 ### 符文（Runes）
 
