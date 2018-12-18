@@ -655,7 +655,7 @@ main() {
 
 
 ### 符号（Symbols）
-符号在Dart程序中表示了一个操作符或者标识符。你可能永远用不到它，但是他们对于用名称标识的API来说是无价的，因为缩小会更改标识符但不会更改标识符符号。
+[符号][82]在Dart程序中表示了一个操作符或者标识符。你可能永远用不到它，但是他们对于用名称标识的API来说是无价的，因为缩小会更改标识符但不会更改标识符符号。
 
 在标识符前加上#就能使用了：
 
@@ -665,7 +665,37 @@ main() {
 ```
 符号是编译时常量。
 
+[82]:https://api.dartlang.org/stable/dart-core/Symbol-class.html
+
 ## 函数（Functions）
+Dart的的确确是一种面向对象语言，甚至连方法也是对象并且有一个属于它的类型：[Function][83]。这就意味着，方法可以被附上值或者当作参数一样传递给其他的方法。您也可以像调用函数一样调用Dart类的实例。更多请看[可调用的类][84]。
+
+以下是一个方法的实现例子：
+```dart
+bool isNoble(int atomicNumber) {
+    return _nobleGases[atomicNumber];
+}
+```
+即使高效的Dart建议[为公开的API使用类型声明][85]，但是如果不声明，方法依然可以正常工作：
+```dart
+isNoble(atomicNumber) {
+    return _nobleGases[atomicNumber];
+}
+```
+对于那些仅有一个表达式的方法，可以使用简短地语法：
+```dart
+isNoble(atomicNumber) => _nobleGases[atomicNumber] != null;
+```
+`=> expr`表达式是`{ return expr; }`的缩写。`=>`符号在有些时候可以作为箭头语法。
+
+> 注意：仅仅是只有一个表达式的方法才能使用这个，仅有一条声明语句不能使用。比方说，你不能使用[if声明][85]，但是可以使用[条件判断表达式][86]。
+
+一个方法可以拥有两种类型的参数：必须的和可选的。必须的参数会放在可选参数前面。被称作是可选参数的依然可以被`@required`标注。看下一节了解更多。
+
+[83]:https://api.dartlang.org/stable/dart-core/Function-class.html
+[84]:https://www.dartlang.org/guides/language/language-tour#callable-classes
+[85]:https://www.dartlang.org/guides/language/language-tour#if-and-else
+[86]:https://www.dartlang.org/guides/language/language-tour#conditional-expressions
 
 
 ### 可选参数（Optional parameters）
