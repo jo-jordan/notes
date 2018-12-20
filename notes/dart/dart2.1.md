@@ -700,6 +700,8 @@ isNoble(atomicNumber) => _nobleGases[atomicNumber] != null;
 
 ### 可选参数（Optional parameters）
 
+可选参数可以是位置参数，也可以是命名参数，但不能同时包
+
 #### 可选的命名参数（Optional named parameters）
 
 #### 可选的位置参数（Optional positional parameters）
