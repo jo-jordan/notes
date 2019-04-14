@@ -5,27 +5,49 @@
 举个生活中的例子：如何哄生气的女朋友？
 1. 可以跟她讲道理
 2. 可以给她买好的化妆品
-以上三个方法，有的方法效率高，有的效率不高。但是都是可以使用的策略，都可以达到目的。
+
+以上两个方法，有的方法效率高，有的效率不高。但是都是可以使用的策略，都可以达到目的。
 
 用Java实现：
 
 ```java
 public interface LoveArts {
-    void makeHerHappy();
+  void makeHerHappy();
 }
 
 public class NomalLoveArts implements LoveArts {
-    @Override
-    void makeHerHappy() {
-        LOG.info("Hey babe don't cry, it's my fault.");
-    }
+  @Override
+  void makeHerHappy() {
+    LOG.info("Hey babe don't cry, it's my fault.");
+  }
 }
 
 public class AdvancedLoveArts implements LoveArts {
-    @Override
-    void makeHerHappy() {
-        LOG.info("Hey babe I will buy some Chanel for you.");
-    }
+  @Override
+  void makeHerHappy() {
+    LOG.info("Hey babe I will buy some Chanel for you.");
+  }
+}
+
+public class Me {
+  private LoveArts arts;
+
+  public Me(LoveArts arts) {
+    this.arts = arts;
+  }
+
+  public changeStrategy(LoveArts arts) {
+    this.arts = arts;
+  }
+
+  public doSomething() {
+    arts.makeHerHappy();
+  }
 }
 ```
 其实感觉Java后台开发中，也是有很多地方会用到这个设计模式，比如说Service层的设计，一个接口中会定义很多基本的业务操作方法，但是有很多不同的实现类，有各种不同的实现方法。
+
+## 适配器模式（Adapter pattern）
+适配器模式可以让两个不兼容的接口同时工作。同时这两个接口虽然不兼容，但是内部方法是要合适需求的。
+
+举个生活中的例子：
