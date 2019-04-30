@@ -39,6 +39,7 @@ $ sudo chown git:git .ssh/authorized_keys # 确保该文件是属于git:git的
 ```shell
 $ cat /tmp/id_rsa.developer.pub >> /home/git/.ssh/authorized_keys # 将开发者的公钥内容复制到authorized_keys文件中
 ```
+到这里，开发者已经可以免密码维护git仓库了
 
 3. 以后添加开发者重复上一步就行了。
 
