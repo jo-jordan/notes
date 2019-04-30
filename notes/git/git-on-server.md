@@ -27,8 +27,10 @@ $ sudo chown -R git project.git # 调整文件夹的所属用户为git，如果�
 1. 为刚刚新建的用户新建.ssh文件夹，备用：
 ```shell
 $ cd /home/git
-$ sudo mkdir .ssh && chmod 700 .ssh # 创建.ssh文件夹，用于存放SSH keys，并赋予相应的权限
-$ touch .ssh/authorized_keys && chmod 600 .ssh/authorized_keys # 确保文件存在，并赋予相应权限
+$ sudo mkdir .ssh && sudo chmod 700 .ssh # 创建.ssh文件夹，用于存放SSH keys，并赋予相应的权限
+$ sudo touch .ssh/authorized_keys && sudo chmod 600 .ssh/authorized_keys # 确保文件存在，并赋予相应权限
+$ sudo chown git:git .ssh # 确保该文件夹是属于git:git的
+$ sudo chown git:git .ssh/authorized_keys # 确保该文件是属于git:git的
 ```
 
 2. 将开发者提供的公钥内容添加到/home/git/.ssh/authorized_keys文件中
