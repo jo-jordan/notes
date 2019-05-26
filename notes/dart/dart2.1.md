@@ -60,7 +60,7 @@ main() {
 刚刚也看到了，这就是Dart语言，请遵循以下的原则：
 
 - 变量可以存放任何东西，并且每个*对象*（*object*）都是一个类的实例。即使是数字，方法和空值（<font color=#008f8e>null</font>），也都算对象。所有对象都继承自Object类。*Java中方法不能是对象*
-- 即使Dart中声明变量可以不指定变量类型，但是它依然是抢类型语言，这是因为Dart会自己推断类型。在上面的例子中，变量<font color=#008f8e>number</font>会被推测为<font color=#008f8e>int</font>类型。如果要明确说明不需要任何类型，请使用特殊类型<font color=#0076c0>dynamic</font>。
+- 即使Dart中声明变量可以不指定变量类型，但是它依然是强类型语言，这是因为Dart会自己推断类型。在上面的例子中，变量<font color=#008f8e>number</font>会被推断为<font color=#008f8e>int</font>类型。如果要明确说明不需要任何类型，请使用特殊类型<font color=#0076c0>dynamic</font>。
 - 和Java一样，Dart支持泛型。<font color=#008f8e>List<int></font>存放int类型的列表或者是<font color=#008f8e>List<dynamic></font>可存放任意类型对象的列表。
 - Dart中的方法能放进类中或者对象中（静态的或者是实例）。和Java不一样的是Dart中方法中能嵌套方法，并且Dart支持顶级方法（top-level function）。
 - 和上面近似的，Dart支持顶级变量（top-level variables）。
@@ -699,15 +699,100 @@ isNoble(atomicNumber) => _nobleGases[atomicNumber] != null;
 
 
 ### 可选参数（Optional parameters）
-
-可选参数可以是位置参数，也可以是命名参数，但不能同时包
+[87]:[https://flutter.dev/]
+[88]:[https://pub.dev/documentation/meta/latest/meta/required-constant.html]
+[89]:[https://pub.dev/packages/meta]
+[90]:[https://dart.dev/tools/pub/pubspec#sdk-constraints]
+可选参数可以是位置参数，也可以是命名参数，但不能同时都有
 
 #### 可选的命名参数（Optional named parameters）
-
+调用方法的时候可以通过使用*paramName: value*指定参数名称：
+```dart
+enableFlags(bold: true, hidden false);
+```
+定义方法时可以使用{*param1, param2*, ...}来指定命名参数：
+```dart
+void enableFlags({bool bold, bool hidden}) {...}
+```
+[Flutter][87]实例创建表达式可能会变得很复杂，因此widget构造器仅仅只使用命名参数。这就让实例的创建表达式变得简单易读。
+你可以在任何Dart代码中（不仅仅只有Flutter）使用注解[@required][88]来指明一个参数是必需参数：
+```dart
+const Scrollbar({Key key, @required Widget child})
+```
+构建**Scrollbar**时，分析器会在*child*参数时空缺的情况下报错.
+[Required][88]被定义在[meta][89]包中。在使用它的时候要么直接导入*package:meta/mata.dart*，要么导入任何输出meta的包，比如说Flutter的*package:flutter/material.dart*包。
 #### 可选的位置参数（Optional positional parameters）
+将一系列方法参数包裹在*[]*中可以标识他们为位置参数：
+```dart
+String say(String from, String msg, [Strng device]) {
+    var result = '$from says $msg';
+    if (device != null) {
+        result = '$result with a $device';
+    }
+    return result;
+}
+```
+不使用位置参数：
+```dart
+assert(say('Bob', 'Howdy') == 'Bob says Howdy'); // true
+```
+使用位置参数：
+```dart
+assert(say('Bob', 'Howdy', 'smoke signal') ==
+    'Bob says Howdy with a smoke signal'); // true
+```
+这里与JavaScript不同就在于，如果在调用同一个方法时，且参数列表长度不一致，在定义这个方法时就需要指定哪些参数可以不用必传，就像位置参数一样。如果没有使用*[]*来标识，分析器就会报错：*Info: Found this candidate, but the arguments don't match.*。并且在使用时发现，位置参数只能放在参数列表的最后位置：
+```dart
+// Correct
+String say(String from, String msg, [String device, String device2]) {...}
 
+// Incorrect
+String say([String from], String msg, String device, String device2) {...}
+
+// Incorrect
+String say(String from, [String msg], String device, String device2) {...}
+```
 #### 默认参数值（Default parameter values）
+你可以使用*=*号来给无论是命名参数还是位置参数的参数赋初始值。初始值必须是编译时常量。如果没有提供初始值，那么初始值是null。
+举个例子：
+```dart
+void enableFlags({bool bold = false, bool hidden = false}) {...}
+// bold will be true; hidden will be false.
+enableFlags(bold: true);
+```
+> 弃用注意：以前代码里面可能使用的冒号(:)来作为参数初始值的赋值符号。原因是最初只有(:)支持命名参数。这个支持可能会被弃用，因此建议[使用=号来指定初始值][90]
 
+接下来的例子展示了如何给位置参数给定初始值：
+```dart
+String say(String from, String msg,
+    [String device = 'carrier pigeon', String mood]) {
+  var result = '$from says $msg';
+  if (device != null) {
+    result = '$result with a $device';
+  }
+  if (mood != null) {
+    result = '$result (in a $mood mood)';
+  }
+  return result;
+}
+
+assert(say('Bob', 'Howdy') ==
+    'Bob says Howdy with a carrier pigeon');
+```
+还可以指定list或者map来作为初始值：
+```dart
+void doStuff(
+    {List<int> list = const[1, 2, 3],
+    Map<String, String> gifts = const {
+        'first': 'paper',
+        'second': 'cotton',
+        'third': 'leather'
+    }}
+) {
+    print('list: $list');
+    print('gifts: $gifts');
+}
+```
 #### 主函数（The main() function）
 
 #### 作为第一类对象的函数（Functions as first-class objects）
