@@ -857,12 +857,96 @@ list.forEach((item) {
 list.forEach((item) => print('${list.indexOf(item)}: $item'));
 ```
 #### 词汇范围（Lexical scope）
+Dart是一个具有词汇范围的语言，就意味着，变量的范围是只通过代码的布局静态决定的。你可以“跟着花括号向外走”去看看变量是否在范围内。
 
-#### 词汇封闭（Lexical closures）
+下面的例子说明了变量的范围等级：
+```dart
+bool topLevel = true;
 
-#### 测试函数是否相等（Testing functions for equality）
+void main() {
+    var insideMain = true;
+
+    void myFunction() {
+        var insideNestedFunction() {
+            var insideNestedFunction = true;
+
+            assert(topLevel);
+            assert(insideMain);
+            assert(insideFunction);
+            assert(insideNestedFunction);
+        }
+    }
+}
+```
+可以看到， nestedFunction()方法是如何访问任何层级的变量。
+
+#### 词汇闭包（Lexical closures）
+闭包是一个能够访问在它词汇范围中的变量的方法对象，即使是在这个方法的原始范围之外使用它。
+
+方法能够关闭它范围内定义的变量。在下面的例子中，makeAdder()方法捕获变量addBy。不论返回的方法在哪里，这个方法就只记住addBy。
+```dart
+/// Returns a function that adds [addBy] to the
+/// function's argument.
+Function makeAdder(num addBy) {
+  return (num i) => addBy + i;
+}
+
+void main() {
+  // Create a function that adds 2.
+  var add2 = makeAdder(2);
+
+  // Create a function that adds 4.
+  var add4 = makeAdder(4);
+
+  assert(add2(3) == 5);
+  assert(add4(3) == 7);
+}
+```
+
+#### 测试函数的相等性（Testing functions for equality）
+以下例子展示了顶级方法、静态方法和实例方法的相等性：
+```dart
+void foo() {} // A top-level funtion
+
+class A {
+    static void bar() {} // A static method
+    void baz() {} // A instance method
+}
+
+void main() {
+    var x;
+
+    // Comparing top-level functions.
+    x = foo;
+    assert(foo == x);
+
+    // Comparing static methods.
+    x = A.bar;
+    assert(A.bar == x);
+
+    // Comparing instance methods.
+    var v = A(); // Instance #1 of A
+    var w = A(); // Instance #2 of A
+    var y = w;
+    x = w.baz;
+
+    // These closures refer to the same instance (#2),
+    // so they're equal.
+    assert(y.baz == x);
+
+    // These closures refer to different instances,
+    // so they're unequal.
+    assert(v.baz != w.baz);
+}
+```
+因此说明，这三种方法之间是没有相等的一说，不同实例中的相同方法是不相等的。其余情况下是相等的。
 
 #### 返回值（Return values）
+所有方法都返回一个值，如果没有返回值则返回null。语句return null会被隐式的添加在方法末尾：
+```dart
+foo() {}
+assert(foo() == null);
+```
 
 ## 操作符（Operators）
 
