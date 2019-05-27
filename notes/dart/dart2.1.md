@@ -703,6 +703,8 @@ isNoble(atomicNumber) => _nobleGases[atomicNumber] != null;
 [88]:[https://pub.dev/documentation/meta/latest/meta/required-constant.html]
 [89]:[https://pub.dev/packages/meta]
 [90]:[https://dart.dev/tools/pub/pubspec#sdk-constraints]
+[91]:[https://dart.dev/guides/language/language-tour#cascade-notation-]
+[92]:[https://pub.dev/packages/args]
 可选参数可以是位置参数，也可以是命名参数，但不能同时都有
 
 #### 可选的命名参数（Optional named parameters）
@@ -794,11 +796,66 @@ void doStuff(
 }
 ```
 #### 主函数（The main() function）
+每个app必须都有顶级main()方法，它是app的入口。main()方法返回void，接受List<String>作为参数。
+举个例子：
+```dart
+void main() {
+    querySelector('#sample_text_id')
+        ..text = 'Click me!'
+        ..onClick.listen(reverseText);
+}
+```
+> 预先编码中的..语法被称作为[级联][91]，使用级联你可以在单个对象中对多个成员进行多种操作
 
+```dart
+void main(List<String> arguments) {
+    print(arguments);
+
+    assert(arguments.length == 2);
+    assert(int.parse(arguments[0]) == 1);
+    assert(arguments[1] == 'test');
+}
+```
+你可以使用[args library][92]去定义和转换命令行参数
 #### 作为第一类对象的函数（Functions as first-class objects）
+你可以将一个方法作为参数传递给另外一个方法：
+```dart
+void printElement(int element) {
+    print(element);
+}
+
+var list = [1, 2, 3];
+
+list.forEach(printElement);
+```
+你可以把方法赋值给变量，就像这样：
+```dart
+var loudify = (msg) => '!!! ${msg.toUpperCase()} !!!';
+assert(loudify('hello') == '!!! HELLO !!!');
+```
 
 #### 匿名函数（Anonymous functions）
+大多数方法都是有名称的，比如说main()和printElement()。当然你也可以创建一个没有名字的匿名方法，或者有时候叫做*lambda* 或者 *closure*，以至于你可能会将一个匿名方法赋值给一个变量，举个例子，你可以从一个集合中添加或者移除它。
 
+一个匿名方法和命名的方法相同之处就是参数列表，都是可以是0个参数，用逗号隔开，可以使用参数竹节，用小括号包裹。
+
+下面的例子就是匿名方法的形式：
+```
+([[Type] param1[, ...]]) {
+    codeBlock;
+};
+```
+下面的例子演示了定义一个匿名方法，它没有定义参数item的类型。这个方法，从list中获取每一个项，将每个项中指定位置的字符串打印出来：
+```dart
+var list = ['apple', 'bananas', 'oranges'];
+list.forEach((item) {
+    print('${list.indexOf(item)}: $item');
+});
+```
+如果方法仅仅包含单个语句，你可以缩写成箭头函数的形式。
+```dart
+list.forEach((item) => print('${list.indexOf(item)}: $item'));
+```
 #### 词汇范围（Lexical scope）
 
 #### 词汇封闭（Lexical closures）
