@@ -705,6 +705,7 @@ isNoble(atomicNumber) => _nobleGases[atomicNumber] != null;
 [90]:[https://dart.dev/tools/pub/pubspec#sdk-constraints]
 [91]:[https://dart.dev/guides/language/language-tour#cascade-notation-]
 [92]:[https://pub.dev/packages/args]
+[93]:[https://dart.dev/guides/language/language-tour#overridable-operators]
 可选参数可以是位置参数，也可以是命名参数，但不能同时都有
 
 #### 可选的命名参数（Optional named parameters）
@@ -949,7 +950,25 @@ assert(foo() == null);
 ```
 
 ## 操作符（Operators）
-
+Dart的操作符都列在下列表格中了。你可以覆盖以下大部分的操作符，详情可见[覆盖操作符][93]。
+| 描述 | 操作符|
+| --- | --- |
+| 一元后缀(unary postfix) | expr++ expr-- () [] . ?. |
+| 一元前缀(unary prefix) | -expr !expr ~expr ++expr --expr |
+| 乘除(multiplicative) | * / % ~/ |
+| 加减(additive) | + - |
+| 移动(shift) | << >> >>> |
+| 位与(bitwise AND) | & |
+| 位非或(bitwise XOR) | ^ |
+| 位或(bitwise OR) | \| |
+| 关系和类型测试(relational type test) | >= > <= < as is is! |
+| 相等性(equality) | == != |
+| 逻辑与(logical AND) | && |
+| 逻辑或(logical OR) | \|\| |
+| 如果空(if null) | ?? |
+| 条件(conditional) | expr1 ? expr2 : expr3 |
+| 级联(cascade) | .. |
+| 赋值(assignment) | = *= /= += -= &= ^= *etc.* |
 ### 字符串和常规表达式
 
 
