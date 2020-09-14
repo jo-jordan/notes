@@ -49,3 +49,5 @@ Java虚拟机具有一个在所有Java虚拟机线程之间共享的方法区域
 3. Dynamic Linking
 4. Normal Method Invocation Complete
 5. Abrupt Method Invocation Complete
+
+[Java SE Specifications - Chapter 2. The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5.5)
