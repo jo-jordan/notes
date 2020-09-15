@@ -1,5 +1,6 @@
 
 # Java内存模型
+![JMM](https://res.cloudinary.com/edgeless-me/image/upload/v1600185746/JVM_v5t4es.png)
 ## 起源
 
 ## JSR 133
@@ -20,7 +21,7 @@ CPU寄存器、CPU缓存、内存读写顺序的重排；
 数据竞争发生在
 - 一个进程中的多个线程同时访问同一块内存
 - 其中至少有一个线程是写操作
-- 所有线程均没有使用任何排他锁来控制其对内存的访问
+- 所有线程均没有使用任何排他锁来控制其对内存的访问(非同步)
 
 当这些条件被满足时，访问顺序是不确定的，并且计算结果完全取决于每个线程运行的先后顺序，这时，数据竞争就开始了（比如，当内存的访问用于繁忙等待时），但是很多数据竞争是程序中的bug。
 
@@ -70,3 +71,15 @@ String s2 = s1.substring(4);
 
 ## final字段如何在新JMM下工作？
 final变量会在对象的构造器中被赋值。假设一个对象被“正确”构造，一旦对象被构造，在构造中的final字段会被其他所有不同步的线程可见。
+
+
+
+
+
+
+
+
+
+## 参考链接
+- [JSR 133 (Java Memory Model) FAQ -- Jeremy Manson and Brian Goetz, February 2004](http://www.cs.umd.edu/~pugh/java/memoryModel/jsr-133-faq.html)
+- [JLS Chapter 17. Threads and Locks -- Oracle](https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.4)
