@@ -1,12 +1,25 @@
 # JVM
 
+## JVM Data Types
+
+### Primitive types
+- 数字类型byte(8-bit), char(16-bit unsigned Unicode), short(16-bit), int(32-bit), long(64-bit), float(32-bit IEEE 754 single precision FP), double(64-bit IEEE 754 double precision FP)
+- boolean
+- returnAddress, 指令的地址指针
+### Reference types
+- Class types
+- Array types
+- Interface types
+
+boolean类型在JVM中会被转换成int使用。
+
 ## Run-Time Data Areas
 
 ### The pc Register
 JVM是支持同时运行多个线程的。每个JVM线程都有其自己的程序计数注册器。在任意时间点上，JVM线程都在执行单个方法的代码，也就是该线程的当前方法。如果被执行的方法不是一个本地方法，那么程序计数注册器会包含一个正在被执行的JVM指令的地址。如果不是，它的值为未定义。程序计数注册器有足够的宽度来持有```returnAddress```或者在指定平台上的一个本地方的指针。
 
 ### JVM Stacks
-每个JVM线程都有一个*私有的*与其同时创建的*JVM栈*，一个JVM栈存放着一系列栈帧。JVM栈与常规的语言是类似的比如说C：JVM栈持有本地变量和一部分结果，并且在方法调用和返回上起了一定作用。因为JVM栈不会被直接操作，除了推入栈帧和弹出栈帧，栈帧可能被堆分配。JVM栈的内存是彼此分开的，不必是相互毗邻的。
+每个JVM线程都有一个*私有的*与其同时创建的*JVM栈*，一个JVM栈存放着一系列栈帧。JVM栈与常规的语言是类似的比如说C：JVM栈持有局部变量和一部分返回值，并且在方法调用和返回上起了一定作用。因为JVM栈不会被直接操作，除了推入栈帧和弹出栈帧，栈帧可能被堆分配。JVM栈的内存是彼此分开的，不必是相互毗邻的。
 
 > *在Java虚拟机规范的第一版中，Java虚拟机堆栈称为Java堆栈。*
 
